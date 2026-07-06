@@ -16,6 +16,6 @@ def copy_file(command: str) -> None:
     if source_name == destination_name:
         return
 
-    with open(source_name, "r") as source, \
-            open(destination_name, "w") as destination:
+    with (open(source_name, "r") as source,
+            open(destination_name, "w") as destination):
         destination.write(source.read())
