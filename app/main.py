@@ -10,10 +10,10 @@ def copy_file(command: str) -> None:
     source_name = parts[1]
     destination_name = parts[2]
 
-    if source_name == destination_name:
+    if not os.path.isfile(source_name):
         return
 
-    if not os.path.exists(source_name):
+    if source_name == destination_name:
         return
 
     with open(source_name, "r") as source, \
