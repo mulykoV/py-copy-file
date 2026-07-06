@@ -1,3 +1,6 @@
+import os
+
+
 def copy_file(command: str) -> None:
     parts = command.split()
 
@@ -6,9 +9,12 @@ def copy_file(command: str) -> None:
 
     source_name = parts[1]
     destination_name = parts[2]
-    if parts[1] == parts[2]:
+
+    if source_name == destination_name:
+        return
+    
+    if not os.path.exists(source_name):
         return
 
-    with open(source_name, "r") as source, \
-            open(destination_name, "w") as destination:
-            destination.write(source.read())
+    with open(source_name, "r") as source, open(destination_name, "w") as destination:
+        destination.write(source.read())
