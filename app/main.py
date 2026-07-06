@@ -9,9 +9,6 @@ def copy_file(command: str) -> None:
     if parts[1] == parts[2]:
         return
 
-    try:
-        with open(source_name, "r") as source, \
-                open(destination_name, "w") as destination:
+    with open(source_name, "r") as source, \
+            open(destination_name, "w") as destination:
             destination.write(source.read())
-    except FileNotFoundError:
-        return
